@@ -81,8 +81,8 @@ function momentoAcao(){
         segundos = segundos - 1
         document.getElementById('seconds_ok').innerHTML = segundos
 
-        if(segundos <= 0){
-            if(min <= 0){
+        if(segundos == 0){
+            if(min == 0){
                 clearInterval(min_interval)
                 clearInterval(seg_interval)
 
@@ -120,15 +120,15 @@ function momentoPausa(){
         segundos = segundos - 1
         document.getElementById('seconds_ok').innerHTML = segundos
 
-        if(segundos <= 0){
-            if(min_pausa <= 0){
+        if(segundos == 0){
+            if(min_pausa == 0){
                 ses = Number(localStorage.getItem('sessoes'))
                 ses = ses - 1
                 
                 clearInterval(min_interval)
                 clearInterval(seg_interval)
                 localStorage.setItem('sessoes', String(ses))
-                if(ses <= 0){
+                if(ses == 0){
                     final.play()
                     localStorage.clear()
                     document.getElementById('botao').style.setProperty('display', 'none', 'important')
